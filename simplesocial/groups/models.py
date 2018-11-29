@@ -32,7 +32,7 @@ class Group(models.Model):
         ordering = ['name']
 
 class GroupMember(models.Model):
-    group = models.ForeignKey(Group, related_name='memeberships', on_delete='cascade')
+    group = models.ForeignKey(Group, related_name='memberships', on_delete='cascade')
     user = models.ForeignKey(User, related_name='user_groups',  on_delete='cascade')
 
     def __str__(self):
