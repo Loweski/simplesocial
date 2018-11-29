@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.conf import settings
 
 import misaka
@@ -25,7 +25,7 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('posts:single' kwargs={'username':self.user.username,
+        return reverse('posts:single', kwargs={'username':self.user.username,
                                                 'pk': self.pk})
 
     class Meta:
